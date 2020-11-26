@@ -1,0 +1,17 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "Tweet",
+      "field": "responseFrom",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Tweet",
+      "field": "parentId",
+      "arity": "Optional"
+    }
+  ]
+}

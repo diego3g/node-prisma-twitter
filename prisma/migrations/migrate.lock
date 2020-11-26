@@ -1,0 +1,11 @@
+# Prisma Migrate lockfile v1
+
+20201126164314-create-users
+20201126202633-tweet-structure
+20201126203234-user-follows
+20201126203321-tweet-parent
+20201126203636-table-names-and-notifications
+20201126210248-add-username-to-users
+20201126210539-set-username-as-unique
+20201126221809-tweet-parent-not-required
+20201126222514-add-timestamp-to-tables

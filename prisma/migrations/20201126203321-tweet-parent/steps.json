@@ -1,0 +1,31 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Tweet",
+      "field": "parentId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "tweetId"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Tweet",
+          "field": "responseFrom"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "newValue": "[parentId]"
+    }
+  ]
+}

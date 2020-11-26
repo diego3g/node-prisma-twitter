@@ -1,0 +1,43 @@
+{
+  "name": "curso-websockets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "migrate:save": "prisma migrate --experimental save",
+    "migrate:up": "prisma migrate --experimental up"
+  },
+  "dependencies": {
+    "@prisma/client": "2.12.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "ws": "^7.4.0"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.12.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.8",
+    "@types/debug": "^4.1.5",
+    "@types/express": "^4.17.9",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/ws": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "prettier": "^2.2.0",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.5"
+  }
+}

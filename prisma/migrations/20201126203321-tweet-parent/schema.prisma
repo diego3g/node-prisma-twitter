@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id          String          @id @default(uuid())
+  email       String          @unique
+  name        String?
+  password    String
+  tweets      Tweet[]
+  mentionedIn TweetMentions[]
+  likedTweets TweetLikes[]
+  following   UserFollows[]   @relation("UserFollowsUser")
+  followers   UserFollows[]   @relation("UserFollowsTarget")
+}
+
+model Tweet {
+  id           String          @id @default(uuid())
+  from         User            @relation(fields: [userId], references: [id])
+  userId       String
+  content      String
+  responseFrom Tweet           @relation("TweetComments", fields: [parentId], references: [id])
+  comments     Tweet[]         @relation("TweetComments")
+  parentId     String
+  mentions     TweetMentions[]
+  likes        TweetLikes[]
+}
+
+model UserFollows {
+  id       String @id @default(uuid())
+  user     User   @relation("UserFollowsUser", fields: [userId], references: [id])
+  userId   String
+  target   User   @relation("UserFollowsTarget", fields: [targetId], references: [id])
+  targetId String
+}
+
+model TweetMentions {
+  id      String @id @default(uuid())
+  tweet   Tweet  @relation(fields: [tweetId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
+  tweetId String
+  userId  String
+}
+
+model TweetLikes {
+  id      String @id @default(uuid())
+  tweet   Tweet  @relation(fields: [tweetId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
+  tweetId String
+  userId  String
+}
